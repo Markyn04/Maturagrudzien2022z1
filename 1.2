@@ -1,0 +1,28 @@
+data = open("mecz.txt").read()
+
+list = list(data.strip())
+
+teamA = 0
+teamB = 0
+winner = ''
+
+for k, v in enumerate(list):
+    if k + 3 > len(list):
+        break
+
+    if v == 'A':
+        teamA = teamA + 1
+    elif v == 'B':
+        teamB = teamB + 1
+
+    if(teamA > 999):
+        if(teamA-teamB >= 3):
+            winner = 'A'
+            break
+    
+    if(teamB > 999):
+        if(teamB-teamA >= 3):
+            winner = 'B'
+            break
+
+print(winner + ' '+ str(teamA) + ':' + str(teamB))

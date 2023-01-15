@@ -1,0 +1,36 @@
+data = open("mecz_przyklad.txt").read()
+
+list = list(data.strip())
+
+passa_1 = 0
+passa_2 = 0
+
+passa_highest1 = 0
+passa_highest2 = 0
+
+passa_counter1 = 0
+
+for k, v in enumerate(list):
+    if k + 3 > len(list):
+        break
+
+    if v == 'A':
+        passa_2 = 0
+        passa_1 = passa_1 + 1
+        if(passa_1 > passa_highest1):
+            passa_highest1 = passa_1
+        if(passa_1 == 10):
+            passa_counter1 = passa_counter1 + 1
+        
+    elif v == 'B':
+        passa_1 = 0
+        passa_2 = passa_2 + 1
+        if(passa_2 > passa_highest2):
+            passa_highest2 = passa_2
+        if(passa_2 == 10):
+            passa_counter1 = passa_counter1 + 1
+
+if passa_highest2 > passa_highest1:
+    print(passa_counter1, 'B', passa_highest2)
+else:
+    print(passa_counter1, 'A', passa_highest1)

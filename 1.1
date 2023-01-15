@@ -1,0 +1,17 @@
+data = open("mecz.txt").read()
+
+counter = 0
+
+list = list(data.strip())
+
+for k, v in enumerate(list):
+    if(k + 3 > len(list)):
+        break
+
+    if(list[k+1] != list[k+2]):
+        counter = counter + 1
+
+print(counter)
+
+
+
